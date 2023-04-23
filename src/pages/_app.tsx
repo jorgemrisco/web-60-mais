@@ -10,6 +10,7 @@ import { darkTheme, lightTheme } from "@src/styles/theme";
 import { Button, useMediaQuery } from "@mui/material";
 import ThemeContext from "@src/utils/themeContext";
 import ThemeToggleButton from "@src/components/ThemeToggleButton";
+import ResponsiveAppBar from "@src/components/AppBar";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -43,6 +44,7 @@ export default function MyApp(props: MyAppProps) {
       <ThemeContext.Provider value={{ themeMode, toggleThemeMode }}>
         <ThemeProvider theme={theme}>
           <ThemeToggleButton />
+          <ResponsiveAppBar />
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
           <Component {...pageProps} />
