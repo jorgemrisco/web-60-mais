@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Button, Divider, Stack, Typography, colors } from "@mui/material";
 import styles from "@styles/index.module.css";
 import Link from "next/link";
+import ContentsList from "@src/components/ContentsList";
 
 export default function Home() {
   return (
@@ -44,6 +45,11 @@ export default function Home() {
               zIndex: "-1",
             }}
           />
+        </div>
+
+        <div id="content">
+          <h1>Conteúdos</h1>
+          <ContentsList />
         </div>
       </main>
     </>
