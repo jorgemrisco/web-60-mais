@@ -63,7 +63,7 @@ export default function ContentCard(props: ContentDto) {
 
         <CardActions>
           <Button
-            href={props.id}
+            href={`/content/${props.id}`}
             size="small"
             color="inherit"
             variant="contained"

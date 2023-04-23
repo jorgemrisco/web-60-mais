@@ -6,9 +6,27 @@ import Typography from "@mui/material/Typography";
 import { Divider } from "@mui/material";
 import style from "@styles/ContentCard.module.css";
 import Link from "next/link";
-import { ContentDto } from "@src/pages/api/get-contents";
+import { useRouter } from "next/router";
+import { useContentContext } from "@src/context/ContentContext";
 
-export default function ContentDetail(props: ContentDto) {
+export default function ContentDetail() {
+  const router = useRouter();
+  const { id } = router.query;
+  const { contents, isLoading, error } = useContentContext();
+  const content = contents.find((item) => item.id === id);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (!content) {
+    return <div>Content not found</div>;
+  }
+
   return (
     <div className={style.main}>
       <Card
@@ -18,14 +36,14 @@ export default function ContentDetail(props: ContentDto) {
         <CardContent>
           <div className={style.title}>
             <Typography variant="h5" component="div">
-              {props.title}
+              {content.title}
             </Typography>
             <Divider />
           </div>
           <br />
 
           <div className={style.description}>
-            <Typography variant="body2">{props.shortDescription}</Typography>
+            <Typography variant="body2">{content.shortDescription}</Typography>
           </div>
           <Divider />
           <br />
@@ -45,7 +63,7 @@ export default function ContentDetail(props: ContentDto) {
             size="small"
             color="inherit"
             variant="contained"
-            href={props.subscribeLink}
+            href={content.subscribeLink}
           >
             Realizar Inscrição
           </Button>
@@ -65,10 +83,16 @@ export default function ContentDetail(props: ContentDto) {
           <div className={style.title} />
           <Typography variant="body2">
             <ul>
-              {props.externalLinks.map((item, key) => {
+              {content.externalLinks.map((item, key) => {
                 return (
                   <li key={key}>
-                    <Link target="_blank" href={item.link} passHref key={key}>
+                    <Link
+                      legacyBehavior
+                      target="_blank"
+                      href={item.link}
+                      passHref
+                      key={key}
+                    >
                       <a target="_blank">{item.title}</a>
                     </Link>
                   </li>
