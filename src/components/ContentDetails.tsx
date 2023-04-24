@@ -28,7 +28,7 @@ export default function ContentDetail() {
   }
 
   return (
-    <div className={style.main}>
+    <div style={{ marginTop: "15vh" }}>
       <Card
         sx={{ minWidth: 275 }}
         style={{ backgroundColor: "rgba(196,196,196,.1)" }}
