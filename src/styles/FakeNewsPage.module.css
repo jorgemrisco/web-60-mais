@@ -1,0 +1,25 @@
+.main {
+  padding: 5rem 0;
+  flex: 1;
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.imageContainer {
+  width: 70%;
+  height: 100%;
+  padding-top: 100px;
+  margin: 32px;
+}
+
+.accordionContainer {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 10px;
+}

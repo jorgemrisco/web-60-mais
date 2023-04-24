@@ -1,6 +1,6 @@
 // components/Footer.tsx
 import { useTheme } from "@emotion/react";
-import { SvgIcon, Box, Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import SocialIcons from "./SocialIcons";
 import Image from "next/image";
 import { useContactContext } from "@src/context/ContactContext";
@@ -17,7 +17,7 @@ const Footer = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
-  console.log("contact", contact);
+
   return (
     <Box sx={{ backgroundColor: theme.palette.secondary.main, py: 4 }}>
       <Container maxWidth="md">
@@ -32,7 +32,8 @@ const Footer = () => {
               {contact.address}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {numberToTelephoneString(contact.phoneNumber)}
+              {contact.phoneNumber &&
+                numberToTelephoneString(contact.phoneNumber)}
             </Typography>
           </Box>
           <Box>
