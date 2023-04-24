@@ -1,5 +1,7 @@
 import { useContentContext } from "@src/context/ContentContext";
 import ContentCard from "./ContentCard";
+import { Divider } from "@mui/material";
+import styles from "@styles/Contents.module.css";
 
 export default function ContentsList() {
   const { contents, isLoading, error } = useContentContext();
@@ -12,7 +14,9 @@ export default function ContentsList() {
   }
 
   return (
-    <div>
+    <div id="content" className={styles.main}>
+      <h1>Conteúdos</h1>
+      <Divider />
       {contents.map((content) => (
         <ContentCard
           externalLinks={content.externalLinks}

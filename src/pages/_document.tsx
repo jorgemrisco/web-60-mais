@@ -18,7 +18,7 @@ interface MyDocumentProps extends DocumentProps {
 
 export default function MyDocument({ emotionStyleTags }: MyDocumentProps) {
   return (
-    <Html lang="en">
+    <Html lang="en" style={{ scrollBehavior: "smooth" }}>
       <Head>
         <link rel="shortcut icon" href="/favicon.ico" />
         {/* Insertion point for client. This connects with createEmotionCache.ts */}
