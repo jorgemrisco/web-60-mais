@@ -6,6 +6,7 @@ import {
   AccordionDetails,
   AccordionSummary,
   Button,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -108,17 +109,19 @@ const CustomAccordion = (props: { title: string; textInMarkdown: string }) => {
   };
 
   return (
-    <Accordion expanded={expanded} onChange={toggleAccordion}>
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon onClick={toggleAccordion} />}
-        aria-controls="panel1a-content"
-        id="panel1a-header"
-      >
-        <Typography>{props.title}</Typography>
-      </AccordionSummary>
-      <AccordionDetails>
-        <ReactMarkdown>{props.textInMarkdown}</ReactMarkdown>
-      </AccordionDetails>
-    </Accordion>
+    <Tooltip title="Clique para expandir e ver os conteúdos">
+      <Accordion expanded={expanded} onChange={toggleAccordion}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon onClick={toggleAccordion} />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>{props.title}</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <ReactMarkdown>{props.textInMarkdown}</ReactMarkdown>
+        </AccordionDetails>
+      </Accordion>
+    </Tooltip>
   );
 };
