@@ -15,7 +15,7 @@ const pages = [
   { title: "Página Inicial", link: "/" },
   { title: "Conteúdo", link: "/#content" },
   { title: "Fake News", link: "/FakeNews" },
-  { title: "Contato", link: "/Contato" },
+  { title: "Contato", link: "/contact" },
 ];
 const title = "PROJETO 60+";
 
