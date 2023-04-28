@@ -26,8 +26,15 @@ export default function MyApp(props: MyAppProps) {
   const [themeMode, setThemeMode] = useState("light");
   const theme = themeMode === "dark" ? darkTheme : lightTheme;
   const toggleThemeMode = () => {
+    window.localStorage.setItem("theme", themeMode);
     setThemeMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
   };
+
+  useEffect(() => {
+    window.localStorage.getItem("theme") == "light"
+      ? setThemeMode("dark")
+      : setThemeMode("light");
+  }, []);
 
   useEffect(() => {
     const jssStyles = document.querySelector("#jss-server-side");
