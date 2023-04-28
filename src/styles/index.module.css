@@ -21,3 +21,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@media (min-width: 2560px) {
+  .heroWrapper {
+    height: 150vh;
+  }
+}
