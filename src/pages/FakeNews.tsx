@@ -85,6 +85,22 @@ Fake News não é tipificado como crime, porém isso não significa que não pod
           />
         </div>
         <div className={styles.imageContainer}>
+          <div
+            style={{
+              width: "100%",
+              alignContent: "center",
+              display: "flex",
+              margin: "8px",
+              flexDirection: "column",
+              alignSelf: "center",
+              alignItems: "center",
+              alignmentBaseline: "central",
+            }}
+          >
+            <Button variant="contained" href="/#content" target="_blank">
+              {"Verificar a disponibilidade do curso sobre Fake News"}
+            </Button>
+          </div>
           <Image
             src="/fake-news1.jpg"
             alt="Fake News Image"
@@ -93,9 +109,6 @@ Fake News não é tipificado como crime, porém isso não significa que não pod
             height={800}
           />
         </div>
-        <Button variant="contained" href="/#content">
-          {"Verificar a disponibilidade do curso sobre Fake News"}
-        </Button>
       </main>
     </div>
   );

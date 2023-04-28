@@ -2,11 +2,18 @@ import { useContentContext } from "@src/context/ContentContext";
 import ContentCard from "./ContentCard";
 import { Divider } from "@mui/material";
 import styles from "@styles/Contents.module.css";
+import LoadingPost from "./Loading";
 
 export default function ContentsList() {
   const { contents, isLoading, error } = useContentContext();
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <>
+        <LoadingPost />
+        <LoadingPost />
+        <LoadingPost />
+      </>
+    );
   }
 
   if (error) {

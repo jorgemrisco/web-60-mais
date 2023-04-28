@@ -4,12 +4,17 @@ import SocialIcons from "./SocialIcons";
 import Image from "next/image";
 import { useContactContext } from "@src/context/ContactContext";
 import { numberToTelephoneString } from "@src/utils/string.utils";
+import LoadingPost from "./Loading";
 
 const Footer = () => {
   const { contact, isLoading, error } = useContactContext();
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <LoadingPost />
+      </div>
+    );
   }
 
   if (error) {
