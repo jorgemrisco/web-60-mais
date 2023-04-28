@@ -32,6 +32,7 @@ const Footer = () => {
       <Container maxWidth="md">
         <Box
           display="flex"
+          sx={{ paddingTop: "32px" }}
           justifyContent="space-between"
           alignItems="center"
           flexDirection={{ xs: "column", sm: "row" }}
