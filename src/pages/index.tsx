@@ -4,8 +4,27 @@ import { Button, Divider, Stack, Typography, colors } from "@mui/material";
 import styles from "@styles/index.module.css";
 import Link from "next/link";
 import ContentsList from "@src/components/ContentsList";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const imageArray = [
+    "/hero/hero1.jpg",
+    "/hero/hero2.jpg",
+    "/hero/hero3.jpg",
+    "/hero/hero4.jpg",
+    "/hero/hero5.jpg",
+    "/hero/hero6.jpg",
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageArray.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [imageArray.length]);
+
   return (
     <>
       <Head>
@@ -37,13 +56,16 @@ export default function Home() {
           </div>
 
           <Image
-            src={"/hero-image.jpg"}
-            alt="hero image example"
+            priority={true}
+            src={imageArray[currentImageIndex]}
+            alt="Imagem de fundo contendo sêniors utilizando tecnologia"
             fill
             style={{
+              backgroundColor: "white",
               objectFit: "cover",
               objectPosition: "center",
               zIndex: "-1",
+              position: "absolute",
             }}
           />
         </div>
