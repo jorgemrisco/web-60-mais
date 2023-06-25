@@ -1,5 +1,5 @@
 export function numberToTelephoneString(telephoneNumber: number): string {
-  const inputNumber = 551633739146;
+  const inputNumber = telephoneNumber;
   const inputString = inputNumber.toString();
 
   const countryCode = inputString.slice(0, 2);
